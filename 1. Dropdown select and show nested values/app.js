@@ -1,51 +1,52 @@
 let mobiles = {
     iPhone: {
         vx: {
-            Ram: '16GB',
-            Price: 30000
+            Ram: '4GB',
+            Price: 1000
         },
         v12Pro: {
-            Ram: '16GB',
-            Price: 20000
+            Ram: '6GB',
+            Price: 2000
         },
         v13Pro: {
-            Ram: '16GB',
-            Price: 20000
+            Ram: '8GB',
+            Price: 3000
         }
     },
     infinix: {
         hot10: {
-            Ram: '16GB',
-            Price: 20000
+            Ram: '2GB',
+            Price: 3000
         },
         hot11s: {
-            Ram: '16GB',
-            Price: 20000
+            Ram: '3GB',
+            Price: 5000
         },
         hot12: {
-            Ram: '16GB',
-            Price: 20000
+            Ram: '4GB',
+            Price: 6000
         }
     },
     samsung: {
         s10: {
-            Ram: '16GB',
-            Price: 20000
+            Ram: '8GB',
+            Price: 6000
         },
         s11: {
-            Ram: '16GB',
-            Price: 20000
+            Ram: '10GB',
+            Price: 7000
         },
         s12: {
-            Ram: '16GB',
-            Price: 20000
+            Ram: '12GB',
+            Price: 8000
         }
     }
 }
 
 var mobileName = document.getElementById('mobileName')
 var mobileModel = document.getElementById('mobileModel')
-var para = document.getElementById('para')
+var para1 = document.getElementById('para1')
+var para2 = document.getElementById('para2')
 
 function fillMainKeys() {
     let mainKeys = Object.keys(mobiles)
@@ -67,10 +68,11 @@ function nestedDropDown() {
     }
 }
 
-function check() {
-    // let nestedKeys = Object.keys(mobiles)
-    // for (var key in nestedKeys) {
-    //     console.log =  key, nestedKeys[key]
-    // }
-    para.innerHTML = `Mobile Name: ${mobileName.value} <br> Mobile Model: ${mobileModel.value}`
+function details() {
+    var a = mobiles[mobileName.value][mobileModel.value]
+    para2.innerHTML = ''
+    para1.innerHTML = `Mobile Name: ${mobileName.value} <br> Mobile Model: ${mobileModel.value}`
+    for (const key in a) {
+        para2.innerHTML += key + " : " + a[key] + "<br>"
+    }
 }
